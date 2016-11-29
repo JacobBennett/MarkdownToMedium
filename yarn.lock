@@ -1120,6 +1120,13 @@ extglob@^0.3.1:
   dependencies:
     is-extglob "^1.0.0"
 
+extract-gfm:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/extract-gfm/-/extract-gfm-0.1.0.tgz#6cdaeb14eb46e3bd3ba464d98171d05a83acff6b"
+  dependencies:
+    gfm-code-block-regex "^0.2.1"
+    gfm-code-blocks "^0.2.0"
+
 extsprintf@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.0.2.tgz#e1080e0658e300b06294990cc70e1502235fd550"
@@ -1324,6 +1331,16 @@ getpass@^0.1.1:
   resolved "https://registry.yarnpkg.com/getpass/-/getpass-0.1.6.tgz#283ffd9fc1256840875311c1b60e8c40187110e6"
   dependencies:
     assert-plus "^1.0.0"
+
+gfm-code-block-regex@^0.2.1:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/gfm-code-block-regex/-/gfm-code-block-regex-0.2.3.tgz#0b9fe68acf2c5a5022fd6d2d418a634f6e97c110"
+
+gfm-code-blocks@^0.2.0:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/gfm-code-blocks/-/gfm-code-blocks-0.2.2.tgz#2999d8148c451b86632c71fa6debe115ee071ffe"
+  dependencies:
+    gfm-code-block-regex "^0.2.1"
 
 glob-base@^0.3.0:
   version "0.3.0"
