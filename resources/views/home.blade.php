@@ -18,10 +18,10 @@
                 </div>
             </div>
         </div>
-        <div v-if="parsed.blocks.length" class="blocks col-md-12">
-            <div class="panel panel-default" v-for="(block, index) in parsed.blocks">
+        <div v-if="blocks.length" class="blocks col-md-12">
+            <div class="panel panel-default" v-for="(block, index) in blocks">
                 {{--<div class="panel-heading">@{{ block.name }}</div>--}}
-                <div class="panel-heading"><input type="" v-model="parsed.blocks[index].name"></div>
+                <div class="panel-heading"><input type="" v-model="blocks[index].name"></div>
                 <div class="panel-body">
                     <pre>@{{ block.code }}</pre>
                 </div>

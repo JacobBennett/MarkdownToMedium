@@ -26,23 +26,23 @@ const app = new Vue({
     data: {
         text: '',
         parsed: {blocks: []},
+        blocks: [],
     },
     methods: {
         parse() {
             this.parsed = extract.parseBlocks(this.text);
-            this.parsed.blocks.map((block, index) => {
-                    block.name = `block${index+1}.${block.lang}`;
-                    return block;
-                });
+            this.blocks = this.parsed.blocks.map(
+                (block, index) => ({...block, name: `block${index+1}.${block.lang}`})
+            );
         },
 
         createAllGists() {
             Promise.all(
-                this.parsed.blocks.map(
+                this.blocks.map(
                     block => this.createGist(block).then(url => ({...block, url}))
                 )
             ).then(blocksWithUrls => {
-                this.parsed.blocks = blocksWithUrls;
+                this.blocks = blocksWithUrls;
                 this.replaceCodeWithUrls();
             });
 
@@ -56,7 +56,7 @@ const app = new Vue({
         },
 
         replaceCodeWithUrls() {
-            this.text = extract.injectBlocks(this.parsed.text, this.parsed.blocks);
+            this.text = extract.injectBlocks(this.parsed.text, this.blocks);
         }
     }
 });
