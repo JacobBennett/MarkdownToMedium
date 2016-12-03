@@ -15,22 +15,55 @@ var extract = require('extract-gfm');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// parse markdown for code blocks
+// create private gists for code blocks and get urls
+// replace code blocks with urls
+
 Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
     el: '#app',
     data: {
         text: '',
-        blocks: [],
+        parsed: {blocks: []},
     },
     methods: {
         parse() {
-            this.blocks = extract.parseBlocks(this.text).blocks
-                .map((block, index) => {
+            this.parsed = extract.parseBlocks(this.text);
+            this.parsed.blocks.map((block, index) => {
                     block.name = `block${index+1}.${block.lang}`;
                     return block;
                 });
+        },
 
+        createAllGists() {
+            Promise.all(
+                this.parsed.blocks.map(
+                    block => this.createGist(block).then(url => ({...block, url}))
+                )
+            ).then(blocksWithUrls => {
+                this.parsed.blocks = blocksWithUrls;
+                this.replaceCodeWithUrls();
+            });
+
+        },
+
+        createGist(gist) {
+            return this.$http.post('/gist', gist).then(
+                response => response.data.html_url,
+                response => console.log('error', response)
+            )
+        },
+
+        replaceCodeWithUrls() {
+            this.text = extract.injectBlocks(this.parsed.text, this.parsed.blocks);
         }
     }
 });
+
+// exports.injectBlocks = function(str, o) {
+//     var arr = str.match(idRegex) || [];
+//     return arr.reduce(function(acc, match, i) {
+//         return acc.replace(match, exports.createBlock(o[i]));
+//     }, str);
+// };
