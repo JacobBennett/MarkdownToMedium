@@ -18,6 +18,8 @@ var extract = require('extract-gfm');
 // parse markdown for code blocks
 // create private gists for code blocks and get urls
 // replace code blocks with urls
+// create new private gist for new text
+// show popup with new gist url to paste into medium
 
 Vue.component('example', require('./components/Example.vue'));
 
@@ -56,14 +58,8 @@ const app = new Vue({
         },
 
         replaceCodeWithUrls() {
+            // move inject Blocks into my project so I don't have to fork lib
             this.text = extract.injectBlocks(this.parsed.text, this.blocks);
         }
     }
 });
-
-// exports.injectBlocks = function(str, o) {
-//     var arr = str.match(idRegex) || [];
-//     return arr.reduce(function(acc, match, i) {
-//         return acc.replace(match, exports.createBlock(o[i]));
-//     }, str);
-// };
