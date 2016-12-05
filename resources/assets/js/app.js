@@ -15,9 +15,9 @@ var extract = require('extract-gfm');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// parse markdown for code blocks
-// create private gists for code blocks and get urls
-// replace code blocks with urls
+// parse markdown for code blocks +
+// create private gists for code blocks and get urls +
+// replace code blocks with urls +
 // create new private gist for new text
 // show popup with new gist url to paste into medium
 
@@ -29,6 +29,7 @@ const app = new Vue({
         text: '',
         parsed: {blocks: []},
         blocks: [],
+        finalGistUrl: '',
     },
     methods: {
         parse() {
@@ -36,6 +37,13 @@ const app = new Vue({
             this.blocks = this.parsed.blocks.map(
                 (block, index) => ({...block, name: `block${index+1}.${block.lang}`})
             );
+        },
+
+        createGist(gist) {
+            return this.$http.post('/gist', gist).then(
+                response => response.data.html_url,
+                response => console.log('error', response)
+            )
         },
 
         createAllGists() {
@@ -46,20 +54,19 @@ const app = new Vue({
             ).then(blocksWithUrls => {
                 this.blocks = blocksWithUrls;
                 this.replaceCodeWithUrls();
+                this.createGist({name: 'blog.md', 'block':this.text});
             });
 
         },
 
-        createGist(gist) {
-            return this.$http.post('/gist', gist).then(
-                response => response.data.html_url,
-                response => console.log('error', response)
-            )
-        },
-
         replaceCodeWithUrls() {
-            // move inject Blocks into my project so I don't have to fork lib
-            this.text = extract.injectBlocks(this.parsed.text, this.blocks);
+            let injectBlocks = function(str, o) {
+                var arr = str.match(/(__CODE_BLOCK\d+__)/g) || [];
+                return arr.reduce(function(acc, match, i) {
+                    return acc.replace(match, `${o[i].url}\n`);
+                }, str);
+            };
+            this.text = injectBlocks(this.parsed.text, this.blocks);
         }
     }
 });

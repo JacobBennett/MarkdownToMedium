@@ -4,12 +4,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <div class="panel panel-default" v-if="finalGistUrl !== ''">
+                <div class="panel-heading">Gist to import to Medium</div>
+                <div class="panel-body">
+                    <input type="text" v-model="finalGistUrl"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
             <div class="panel panel-default">
-                {{--<div class="panel-heading">Dashboard</div>--}}
-
-                {{--<div class="panel-body">--}}
-                    {{--You are logged in!--}}
-                {{--</div>--}}
+                <div class="panel-heading">Paste Markdown Here</div>
                 <div class="panel-body">
                     <textarea name="text" v-model="text" rows="10" style="width: 100%;"></textarea>
                     <hr>
