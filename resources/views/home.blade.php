@@ -17,8 +17,10 @@
                 <div class="panel-body">
                     <textarea name="text" v-model="text" rows="10" style="width: 100%;"></textarea>
                     <hr>
-                    <button @click.prevent="parse">click me</button>
-                    <button @click.prevent="createAllGists">build</button>
+                    <transition>
+                        <button v-if="! blocks.length" @click.prevent="parse" class="btn btn-primary">click me</button>
+                        <button v-else @click.prevent="createAllGists" class="btn btn-primary">build</button>
+                    </transition>
                 </div>
             </div>
         </div>
