@@ -14,9 +14,9 @@ class GistController extends Controller
 
         $this->validate($request, [
             'name'  => 'required',
-            'block' => 'required',
+            'code' => 'required',
         ]);
 
-        return $gistClient->createGist($request->name, $request->block, $request->description);
+        return $gistClient->createGist($request->name, $request->code, $request->description);
     }
 }
