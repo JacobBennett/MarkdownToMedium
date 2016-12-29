@@ -27,6 +27,7 @@ const app = new Vue({
     el: '#app',
     data: {
         step: 1,
+        creatingGists: false,
         text: '',
         parsed: {blocks: []},
         blocks: [],
@@ -50,6 +51,8 @@ const app = new Vue({
         },
 
         createAllGists() {
+            this.step = 3;
+            this.creatingGists = true;
             Promise.all(
                 this.blocks.map(
                     block => this.createGist(block).then(url => ({...block, url}))
@@ -57,7 +60,11 @@ const app = new Vue({
             ).then(blocksWithUrls => {
                 this.blocks = blocksWithUrls;
                 this.replaceCodeWithUrls();
-                this.createGist({name: 'blog.md', 'block':this.text});
+                this.createGist({name: 'blog.md', code: this.text})
+                    .then(url => {
+                        this.creatingGists = false;
+                        this.finalGistUrl = url;
+                    });
             });
 
         },
