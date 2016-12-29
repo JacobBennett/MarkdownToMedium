@@ -26,17 +26,20 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app',
     data: {
+        step: 1,
         text: '',
         parsed: {blocks: []},
         blocks: [],
         finalGistUrl: '',
     },
     methods: {
-        parse() {
+        parseMarkdown() {
             this.parsed = extract.parseBlocks(this.text);
             this.blocks = this.parsed.blocks.map(
                 (block, index) => ({...block, name: `block${index+1}.${block.lang}`})
             );
+
+            this.step = 2;
         },
 
         createGist(gist) {
