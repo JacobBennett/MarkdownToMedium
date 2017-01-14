@@ -16,6 +16,7 @@
     "vue-resource": "^1.0.3"
   },
   "dependencies": {
+    "beardcss": "^2.2.4",
     "extract-gfm": "^0.1.0"
   }
 }

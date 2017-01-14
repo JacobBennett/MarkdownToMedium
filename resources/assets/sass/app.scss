@@ -1,12 +1,30 @@
 
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+//@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
-// Variables
-@import "variables";
+//// Variables
+//@import "variables";
+//
+//// Overrides
+//@import "overrides";
+//
+//// Bootstrap
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-// Overrides
-@import "overrides";
+// Customize Beard's defaults
+$brand-color-1: #f18cb9;
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Import Beard's settings and tools
+@import 'node_modules/beardcss/stylesheets/beard.before';
+
+//// Place custom spacing, color, and media query configuration here
+//@include new-spacing-helper('0\\.5', 0.5);
+//@include new-color('1--light', lighten($brand-color-1, 15%));
+//@include new-breakpoint(tablet, '(min-width: 600px)');
+
+// Your site styles go here
+@import 'landing';
+@import 'site';
+
+// Beard's helpers are generated here
+@import 'node_modules/beardcss/stylesheets/beard.after';
