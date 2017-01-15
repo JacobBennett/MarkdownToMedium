@@ -24,4 +24,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function gists()
+    {
+        return $this->hasMany(Gist::class);
+    }
+
+    public function addGist(Gist $gist)
+    {
+        return $this->gists()->save($gist);
+    }
 }
