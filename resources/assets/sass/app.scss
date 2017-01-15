@@ -18,8 +18,10 @@ $brand-color-1: #f18cb9;
 @import 'node_modules/beardcss/stylesheets/beard.before';
 
 //// Place custom spacing, color, and media query configuration here
-//@include new-spacing-helper('0\\.5', 0.5);
-//@include new-color('1--light', lighten($brand-color-1, 15%));
+@include new-spacing-helper('1\\.5', 1.5);
+@include new-color('1--dark', #ce779d);
+@include new-color('1--light', lighten($brand-color-1, 2.5%));
+
 //@include new-breakpoint(tablet, '(min-width: 600px)');
 
 // Your site styles go here

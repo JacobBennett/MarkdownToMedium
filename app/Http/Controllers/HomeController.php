@@ -26,11 +26,4 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function createGists()
-    {
-        // get JSON object from the front end
-        // loop through the collection and create a new gist for each one
-        // return the link for each item
-        // https://github.com/KnpLabs/php-github-api/blob/1.7/doc/gists.md
-    }
 }

@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+    @yield('header_scripts')
 
     <!-- Scripts -->
     <script>
