@@ -59,11 +59,13 @@
                         snippets, there is literally no faster way to make that happen than by using this tool.
                     </p>
 
+                    <h2 class="ft5 tc1 fw3">How does it work?</h2>
+
                     <p class="ft4 mv2 lh1-6 tcg50">
-                        This little tool takes the pain out of importing a Markdown post into Medium by doing the
+                        This tool takes the pain out of importing a Markdown post into Medium by doing the
                         manual labor for you (creating a gist on Github of your markdown). It also scans your Markdown
                         file for any code blocks and extracts them into their own gists
-                        so that Medium can syntax highlight them.
+                        so Medium can syntax highlight them.
                     </p>
                 </div>
 
