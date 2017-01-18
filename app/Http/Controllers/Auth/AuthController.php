@@ -37,7 +37,7 @@ class AuthController extends Controller
         $authUser = $this->findOrCreateUser($user);
         auth()->login($authUser, true);
 
-        return redirect(session()->get('redirect_to', '/home'));
+        return redirect(session()->get('redirect_to', '/create'));
     }
 
     private function findOrCreateUser($user)
