@@ -5,9 +5,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Markdown To Medium</title>
+        <title>Markdown To Medium - The fastest way to get your Markdown post onto Medium</title>
+        <meta name="description" content="If you want to publish a Markdown post to Medium with syntax highlighted code snippets, there is literally no faster way to make that happen than by using this tool.">
 
-        <!-- Fonts -->
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{elixir('css/app.css')}}">
@@ -51,7 +58,7 @@
                 </p>
             </div>
             <div class="tac mt5">
-                <img src="img/markdowneditor.jpg" alt="How Does It Work" style="width: 75%">
+                <img src="img/markdowneditor.jpg" alt="Markdown Code Editor describing how markdown to medium works" style="width: 75%">
             </div>
         </div>
         
@@ -65,7 +72,7 @@
                     <h2 class="ft5 tc1 fw3">Why do I need this?</h2>
 
                     <p class="ft4 mv2 lh1-6 tcg50">
-                        If you want to post a Markdown post to Medium and you want it to contain syntax highlighted code
+                        If you want to publish a Markdown post to Medium and you want it to contain syntax highlighted code
                         snippets, there is literally no faster way to make that happen than by using this tool.
                     </p>
 
