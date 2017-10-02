@@ -42,7 +42,7 @@
 </head>
 <body class="site-bg">
     <div id="app">
-        <div class="frame">
+        <div class="frame w100">
             <div class="md-blk3"></div>
             <div class="md-blk6">
                 <div class="frame mt2">

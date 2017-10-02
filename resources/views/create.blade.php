@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="frame mt3 w100">
+    <div class="frame mt3 w100" v-cloak>
         <div class="md-blk3"></div>
         <div class="md-blk6">
             {{-- STEP 1 --}}
