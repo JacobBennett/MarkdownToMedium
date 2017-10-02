@@ -61,7 +61,7 @@
                             <input v-model="blocks[index].name" type="text" class="brdr2 br6 ft3" style="border-color: #f18cb9; padding: .5rem;">
                         </div>
                         <div class="mt2">
-                            <code class="pa1" :class="'language-' + block.lang"><pre>@{{ block.code }}</pre></code>
+                            <pre class="pa1"><code :class="'language-' + block.lang">@{{ block.code }}</code></pre>
                         </div>
                     </div>
                 </div>
