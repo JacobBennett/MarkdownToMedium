@@ -41,6 +41,9 @@ const app = new Vue({
             );
 
             this.step = 2;
+            this.$nextTick(function () {
+                Prism.highlightAll();
+            });
         },
 
         createGist(gist) {
