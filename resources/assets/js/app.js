@@ -37,7 +37,10 @@ const app = new Vue({
         parseMarkdown() {
             this.parsed = extract.parseBlocks(this.text);
             this.blocks = this.parsed.blocks.map(
-                (block, index) => ({...block, name: `block${index+1}.${block.lang}`})
+                (block, index) => {
+                    let lang = block.lang === 'python' ? 'py' : block.lang;
+                    return {...block, name: `block${index+1}.${lang}`}
+                }
             );
 
             this.step = 2;
