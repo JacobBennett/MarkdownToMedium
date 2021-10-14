@@ -39,7 +39,7 @@ const app = new Vue({
             this.blocks = this.parsed.blocks.map(
                 (block, index) => {
                     let lang = block.lang === 'python' ? 'py' : block.lang;
-                    return {...block, name: `block${index+1}.${lang}`}
+                    return {...block, name: `block${index+1}.py`}
                 }
             );
 
