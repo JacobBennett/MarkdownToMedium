@@ -20,7 +20,7 @@
     <meta name="description" content="If you want to publish a Markdown post to Medium with syntax highlighted code snippets, there is literally no faster way to make that happen than by using this tool.">
 
     <!-- Styles -->
-    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
     @yield('header_scripts')
 
     <!-- Scripts -->
@@ -70,7 +70,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <li><a href="{{ url('/login') }}">Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -101,6 +101,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{elixir('js/app.js')}}"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>
